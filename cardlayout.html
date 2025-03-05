@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Card Layout</title>
+    <link rel="stylesheet" href="">
+    <style>
+        body {
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f4f4f4;
+  margin: 0;
+}
+.container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  width: 80%;
+  max-width: 1000px;
+}
+.card {
+  background: white;
+  padding: 20px;
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+  position: relative;
+}
+.card img {
+  width: 100%;
+  border-radius: 10px;
+}
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+}
+.details {
+  display: none;
+  margin-top: 10px;
+  font-size: 14px;
+  color: #555;
+}
+.card button {
+  margin-top: 10px;
+  padding: 8px 12px;
+  border: none;
+  background-color: #007bff;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+.card button:hover {
+  background-color: #0056b3;
+}
+    </style>
+
+</head>
+<body>
+    <div class="container">
+        <div class="card" onmouseover="changeBgColor(this)" onmouseout="resetBgColor(this)">
+            <img src="images/airforce 1.jpg" alt="card images">
+            <h3>airforce 1</h3>
+            <p>Plain white</p>
+            <button onclick="toggleDetails(this)">More Details</button>
+            <div class="details">Lightweight and stylish</div>
+        </div>
+        <div class="card" onmouseover="changeBgColor(this)" onmouseout="resetBgColor(this)">
+            <img src="images/vans.jpg" alt="Card Image">
+            <h3>Vans off the wall</h3>
+            <p>Black and white oldschool</p>
+            <button onclick="toggleDetails(this)">More Details</Details></button>
+            <div class="details">For all-day comfort</div>
+        </div>
+        <div class="card" onmouseover="changeBgColor(this)" onmouseout="resetBgColor(this)">
+            <img src="images/jordan 1.jpg" alt="Card Image">
+            <h3>Jordan 1</h3>
+            <p> Olive Travis Scott Lowcut</p>
+            <button onclick="toggleDetails(this)">More Details</button>
+            <div class="details">For all types of fit</div>
+        </div>
+    </div>
+
+    <script>
+        function changeBgColor(card) {
+            card.style.backgroundColor = "#e0f7fa";
+        }
+        function resetBgColor(card) {
+            card.style.backgroundColor = "white";
+        }
+        function toggleDetails(button) {
+            const details = button.nextElementSibling;
+            if (details.style.display === "none" || details.style.display === "") {
+                details.style.display = "block";
+                button.textContent = "Less Details";
+            } else {
+                details.style.display = "none";
+                button.textContent = "More Details";
+            }
+        }
+    </script>
+</body>
+</html>
